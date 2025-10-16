@@ -7,6 +7,7 @@ import SmartSearch from './views/SmartSearch';
 import JobsView from './views/JobsView';
 import CandidatesView from './views/CandidatesView';
 import AnalyticsModern from './views/AnalyticsModern';
+import AnalyticsShadcn from './views/AnalyticsShadcn';
 import CandidateDashboard from './views/CandidateDashboard';
 import CandidateProfile from './views/CandidateProfile';
 import CandidateJobSearch from './views/CandidateJobSearch';
@@ -32,7 +33,7 @@ function App() {
       case 'candidates':
         return <CandidatesView />;
       case 'analytics':
-        return <AnalyticsModern />;
+        return <AnalyticsShadcn />;
       
       // Candidate views
       case 'candidate-dashboard':
