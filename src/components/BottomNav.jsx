@@ -13,13 +13,16 @@ const BottomNav = ({ currentView, onViewChange, userType }) => {
   const recruiterMenuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'search', label: 'Recherche', icon: Search },
-    { id: 'candidates', label: 'Candidats', icon: Users },
-    { id: 'analytics', label: 'Stats', icon: BarChart3 },
+    { id: 'applications', label: 'Candidatures', icon: Briefcase },
+    { id: 'chat', label: 'Chat', icon: MessageSquare },
+    { id: 'profile', label: 'Profil', icon: User },
   ];
 
   const candidateMenuItems = [
     { id: 'candidate-dashboard', label: 'Home', icon: LayoutDashboard },
     { id: 'job-search', label: 'Offres', icon: Search },
+    { id: 'candidate-messages', label: 'Messages', icon: MessageSquare },
+    { id: 'candidate-chat', label: 'Chat', icon: MessageSquare },
     { id: 'candidate-profile', label: 'Profil', icon: User },
   ];
 

@@ -8,6 +8,10 @@ import JobsView from './views/JobsView';
 import CandidatesView from './views/CandidatesView';
 import AnalyticsModern from './views/AnalyticsModern';
 import AnalyticsShadcn from './views/AnalyticsShadcn';
+import ApplicationsView from './views/ApplicationsView';
+import MessagesView from './views/MessagesView';
+import ChatView from './views/ChatView';
+import ProfileView from './views/ProfileView';
 import CandidateDashboard from './views/CandidateDashboard';
 import CandidateProfile from './views/CandidateProfile';
 import CandidateJobSearch from './views/CandidateJobSearch';
@@ -32,6 +36,14 @@ function App() {
         return <JobsView />;
       case 'candidates':
         return <CandidatesView />;
+      case 'applications':
+        return <ApplicationsView />;
+      case 'messages':
+        return <MessagesView />;
+      case 'chat':
+        return <ChatView />;
+      case 'profile':
+        return <ProfileView />;
       case 'analytics':
         return <AnalyticsShadcn />;
       
@@ -40,6 +52,10 @@ function App() {
         return <CandidateDashboard />;
       case 'candidate-profile':
         return <CandidateProfile />;
+      case 'candidate-messages':
+        return <MessagesView />;
+      case 'candidate-chat':
+        return <ChatView />;
       case 'job-search':
         return <CandidateJobSearch />;
       

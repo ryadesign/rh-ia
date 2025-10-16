@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Search, Mic, Filter, SlidersHorizontal, Sparkles, Loader2, TrendingUp, Grid, List, Star, Zap } from 'lucide-react';
+import { Search, Mic, Filter, SlidersHorizontal, Sparkles, Loader2, TrendingUp, Grid, List, Star, Zap, Volume2, VolumeX } from 'lucide-react';
 import VoiceInput from '../components/VoiceInput';
 import CandidateCard from '../components/CandidateCard';
 import { parseJobDescription, searchCandidates } from '../utils/matching';
+import voiceManager from '../utils/voiceUtils';
 
 const SmartSearch = () => {
   const { candidates, setSearchResults, setSelectedCandidate, sendMessage } = useApp();
@@ -13,6 +14,7 @@ const SmartSearch = () => {
   const [results, setResults] = useState([]);
   const [displayMode, setDisplayMode] = useState('grid'); // 'grid' or 'list'
   const [sortBy, setSortBy] = useState('score'); // 'score', 'experience', 'availability'
+  const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
   
   // Filtres
   const [filters, setFilters] = useState({
@@ -30,6 +32,11 @@ const SmartSearch = () => {
 
   const handleSearch = async () => {
     setIsSearching(true);
+    
+    // 🎤 Annoncer le début de la recherche
+    if (isVoiceEnabled) {
+      voiceManager.speakSearchStart();
+    }
     
     // Simuler recherche IA
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -71,6 +78,11 @@ const SmartSearch = () => {
     setResults(matchedCandidates);
     setSearchResults(matchedCandidates);
     setIsSearching(false);
+    
+    // 🎤 Annoncer la fin de la recherche
+    if (isVoiceEnabled) {
+      voiceManager.speakSearchComplete(matchedCandidates.length);
+    }
   };
 
   const addSkill = (skill) => {
@@ -91,10 +103,10 @@ const SmartSearch = () => {
       <div className="mb-6 sm:mb-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
-            <h1 className="apple-title text-3xl sm:text-4xl lg:text-5xl text-black mb-2">
+            <h1 className="apple-title text-3xl sm:text-4xl lg:text-5xl text-gray-900 mb-2">
               Recherche Intelligente
             </h1>
-            <p className="apple-body text-sm sm:text-base text-gray-500">Trouvez les meilleurs talents avec l'IA</p>
+            <p className="apple-body text-sm sm:text-base text-gray-600">Trouvez les meilleurs talents avec l'IA</p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="apple-pill text-xs sm:text-sm">

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { MapPin, Briefcase, Star, TrendingUp, CheckCircle, MessageSquare, UserPlus, ChevronRight, Award, Clock } from 'lucide-react';
+import { MapPin, Briefcase, Star, TrendingUp, CheckCircle, MessageSquare, UserPlus, ChevronRight, Award, Clock, Volume2 } from 'lucide-react';
 import MessageModal from './MessageModal';
+import voiceManager from '../utils/voiceUtils';
 
-const CandidateCard = ({ candidate, onAddToPipeline, sendMessage }) => {
+const CandidateCard = ({ candidate, onAddToPipeline, sendMessage, isVoiceEnabled = true }) => {
   const [showMessageModal, setShowMessageModal] = useState(false);
 
   const getScoreColor = (score) => {
@@ -186,10 +187,21 @@ const CandidateCard = ({ candidate, onAddToPipeline, sendMessage }) => {
               <UserPlus className="w-4 h-4" />
             </button>
             <button
+              onClick={handleViewProfile}
               className="flex items-center justify-center px-4 py-3 bg-white hover:bg-gray-50 text-gray-700 rounded-xl font-semibold text-sm transition-all duration-200 active:scale-95 border border-gray-200"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
+            
+            {isVoiceEnabled && (
+              <button
+                onClick={() => voiceManager.speakProfileDetails(candidate)}
+                className="flex items-center justify-center px-3 py-3 bg-white hover:bg-gray-50 text-blue-600 rounded-xl font-semibold text-sm transition-all duration-200 active:scale-95 border border-blue-200"
+                title="Écouter le résumé du profil"
+              >
+                <Volume2 className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
 

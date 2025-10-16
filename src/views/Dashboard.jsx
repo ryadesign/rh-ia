@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Briefcase, Users, TrendingUp, CheckCircle, Clock, UserCheck } from 'lucide-react';
+import { Briefcase, Users, TrendingUp, CheckCircle, Clock, UserCheck, Volume2, VolumeX } from 'lucide-react';
+import voiceManager from '../utils/voiceUtils';
 
 const Dashboard = () => {
-  const { jobs, candidates, applications } = useApp();
+  const { jobs, candidates, applications, userType } = useApp();
+  const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
+
+  // 🎤 Message de bienvenue au chargement
+  useEffect(() => {
+    if (isVoiceEnabled) {
+      setTimeout(() => {
+        voiceManager.speakWelcome(userType);
+      }, 1000);
+    }
+  }, [userType, isVoiceEnabled]);
 
   const openJobs = jobs.filter(j => j.status === 'open').length;
   const totalCandidates = candidates.length;

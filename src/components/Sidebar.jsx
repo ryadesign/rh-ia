@@ -6,7 +6,8 @@ import {
   Users, 
   BarChart3, 
   User,
-  LogOut
+  LogOut,
+  MessageSquare
 } from 'lucide-react';
 
 const Sidebar = ({ currentView, onViewChange, userType, onUserTypeChange }) => {
@@ -15,6 +16,10 @@ const Sidebar = ({ currentView, onViewChange, userType, onUserTypeChange }) => {
     { id: 'search', label: 'Recherche', icon: Search },
     { id: 'jobs', label: 'Offres', icon: Briefcase },
     { id: 'candidates', label: 'Candidats', icon: Users },
+    { id: 'applications', label: 'Candidatures', icon: Briefcase },
+    { id: 'messages', label: 'Messages', icon: MessageSquare },
+    { id: 'chat', label: 'Chat', icon: MessageSquare },
+    { id: 'profile', label: 'Mon Profil', icon: User },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
   ];
 
@@ -22,6 +27,8 @@ const Sidebar = ({ currentView, onViewChange, userType, onUserTypeChange }) => {
     { id: 'candidate-dashboard', label: 'Mon Dashboard', icon: LayoutDashboard },
     { id: 'candidate-profile', label: 'Mon Profil', icon: User },
     { id: 'job-search', label: 'Offres', icon: Search },
+    { id: 'candidate-messages', label: 'Messages', icon: MessageSquare },
+    { id: 'candidate-chat', label: 'Chat', icon: MessageSquare },
   ];
 
   const menuItems = userType === 'recruiter' ? recruiterMenuItems : candidateMenuItems;
