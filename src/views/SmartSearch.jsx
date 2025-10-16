@@ -86,22 +86,22 @@ const SmartSearch = () => {
   const cities = ['Paris', 'Lyon', 'Marseille', 'Toulouse', 'Bordeaux', 'Lille', 'Nantes', 'Nice'];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       {/* Header - Apple Style - Responsive */}
       <div className="mb-6 sm:mb-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
-            <h1 className="apple-title text-3xl sm:text-4xl lg:text-5xl text-[#1d1d1f] mb-2">
+            <h1 className="apple-title text-3xl sm:text-4xl lg:text-5xl text-black mb-2">
               Recherche Intelligente
             </h1>
-            <p className="apple-body text-sm sm:text-base text-[#86868b]">Trouvez les meilleurs talents avec l'IA</p>
+            <p className="apple-body text-sm sm:text-base text-gray-500">Trouvez les meilleurs talents avec l'IA</p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <div className="apple-pill text-xs sm:text-sm">
               <span>{candidates.length} candidats</span>
             </div>
             {results.length > 0 && (
-              <div className="bg-[#0071e3] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full apple-shadow-md">
+              <div className="bg-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full apple-shadow-md">
                 <span className="text-xs sm:text-sm font-semibold text-white">{results.length} résultats</span>
               </div>
             )}
@@ -166,14 +166,14 @@ const SmartSearch = () => {
                   onChange={(e) => setFilters({...filters, minScore: parseInt(e.target.value)})}
                   className="flex-1 sm:w-32"
                 />
-                <span className="text-xs sm:text-sm font-semibold text-[#0071e3] whitespace-nowrap">{filters.minScore}%</span>
+                <span className="text-xs sm:text-sm font-semibold text-black whitespace-nowrap">{filters.minScore}%</span>
               </div>
               <label className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-black/5 rounded-xl cursor-pointer hover:bg-black/10 transition-colors active:scale-95">
                 <input
                   type="checkbox"
                   checked={filters.availableNow}
                   onChange={(e) => setFilters({...filters, availableNow: e.target.checked})}
-                  className="w-4 h-4 accent-[#34c759] rounded"
+                  className="w-4 h-4 accent-black rounded"
                 />
                 <span className="text-xs sm:text-sm font-medium">Disponibles</span>
               </label>
@@ -182,7 +182,7 @@ const SmartSearch = () => {
                   type="checkbox"
                   checked={filters.remoteOnly}
                   onChange={(e) => setFilters({...filters, remoteOnly: e.target.checked})}
-                  className="w-4 h-4 accent-[#0071e3] rounded"
+                  className="w-4 h-4 accent-black rounded"
                 />
                 <span className="text-xs sm:text-sm font-medium">Remote</span>
               </label>

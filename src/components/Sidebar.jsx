@@ -30,7 +30,7 @@ const Sidebar = ({ currentView, onViewChange, userType, onUserTypeChange }) => {
     <div className="w-20 sm:w-24 lg:w-72 glass-effect border-r border-black/5 h-screen flex flex-col">
       {/* Logo - Apple Style - Responsive */}
       <div className="p-3 sm:p-4 lg:p-6 border-b border-black/5">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0071e3] mb-1">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-black mb-1">
           <span className="hidden lg:inline">RHiQ</span>
           <span className="lg:hidden">RQ</span>
         </h1>
@@ -49,7 +49,7 @@ const Sidebar = ({ currentView, onViewChange, userType, onUserTypeChange }) => {
               title={item.label}
               className={`w-full flex items-center justify-center lg:justify-start gap-3 px-2 sm:px-3 lg:px-4 py-3 rounded-xl transition-all duration-200 ${
                 isActive
-                  ? 'bg-[#0071e3] text-white apple-shadow-md'
+                  ? 'bg-black text-white apple-shadow-md'
                   : 'text-gray-700 hover:bg-black/5 active:scale-95'
               }`}
             >
